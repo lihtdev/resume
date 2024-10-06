@@ -10,7 +10,7 @@ window.resume = {
 	"work_date_from" : "2015-02-01",
 	"phone" : "U2FsdGVkX1/wkkElHhOIzI/ALxag5uq9EmiF",
 	"email" : "lihaitaomail@126.com",
-	"github" : "https://github.com/lihthub",
+	"github" : "https://github.com/lihtdev",
 	"profile_photo" : "images/lihaitao.png",
 	"position_applied" : "Java工程师",
 	"work_city" : "南京",
