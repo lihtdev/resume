@@ -150,10 +150,17 @@ window.resume = {
 	[
 		{
 			"form_date" : "U2FsdGVkX1+qMR0+DRJEm7n0PGgwlwg=",
-			"to_date" : "U2FsdGVkX18iF66tlf3EGXxwZA7K8BA=",
+			"to_date" : "U2FsdGVkX19fcEfBKT/Gf3XIa+UF59g=",
 			"school" : "U2FsdGVkX1/AU+G7TIFmQ9LgkcK01zoSAELHE6g8laVnKA==",
 			"major" : "U2FsdGVkX19u5JnEuvjPMUJkPCCunEHz4kz9Hv0hux213Oc5Cw==",
-			"degree" : "U2FsdGVkX1/YYWjxGdCEEIFxIY9gXQ=="
+			"degree" : "U2FsdGVkX1+hbept1dxqb4sivoF61ha3IWj4e5ZG8ElToQ=="
+		},
+		{
+			"form_date" : "U2FsdGVkX1+qMR0+DRJEm7n0PGgwlwg=",
+			"to_date" : "U2FsdGVkX1/2J1wSSa5Zo5gwE2CexRA=",
+			"school" : "U2FsdGVkX1/AU+G7TIFmQ9LgkcK01zoSAELHE6g8laVnKA==",
+			"major" : "U2FsdGVkX1+RHCVibksJKaAoM/Cb/WB5nljmzBQ2RnZikc7o4w==",
+			"degree" : "U2FsdGVkX19L8/R+a6W563tpYQwLwA1UXx6M94Ky4FZX7A=="
 		}
 	],
 	"self_evaluation" : "对工作有较强的责任心，有很好的学习能力，善于解决复杂的业务逻辑问题"
