@@ -1,5 +1,6 @@
 body {
 	background-color: #fff;
+	color: black;
     font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -120,10 +121,6 @@ body {
 	min-height: 5px;
 	float: right;
 }
-.item-detail .comment {
-	font-size: 13px;
-	color: gray;
-}
 .item-detail .timeline .timeline-right.no-timeline {
 	padding: 5px 8px 0px 18px;
 }
@@ -140,6 +137,13 @@ body {
 	height: 21px;
 	float: left;
 }
+.item-detail .comment {
+	font-size: 13px;
+	color: gray;
+}
+.item-detail ol {
+	padding-left: 15px;
+}
 .item-detail .exp {
 	overflow: auto;
 }
@@ -154,6 +158,50 @@ body {
 .item-detail .edu .edu-detail {
 	margin-left: 4px; 
 	float: left;
+}
+.item-detail .project-item {
+	margin-top: 15px;
+}
+.item-detail .project-item .project-item-title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.item-detail .project-desc {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.item-detail table.project-functions {
+	width: 100%;
+	border-collapse: collapse;
+}
+.item-detail table.project-functions td,
+.item-detail table.project-functions th {
+	border: 1px solid #E6E6E6;
+	padding: 5px;
+}
+.item-detail table.project-functions th {
+	min-width: 90px;
+	font-weight: normal;
+}
+.item-detail .project-technology {
+	
+}
+.item-detail .project-technology .tag {
+	display: inline-block;
+	border: 1px solid #E6E6E6;
+	padding: 3px;
+	border-radius: 9px;
+	margin-right: 9px;
+	margin-bottom: 3px;
+}
+.item-detail ol.project-performance {
+	margin-top: 0;
+}
+.item-detail ol.project-performance li {
+	margin-bottom: 5px; 
+}
+.item-detail ol.professional-skills li {
+	margin-bottom: 10px; 
 }
 .icon-color {
 	color: #788396;
