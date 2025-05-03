@@ -16,8 +16,8 @@ $(function() {
 
 	// 根据参加工作时间计算工作年限
 	var workYears;
-	var workDateTo = today;
-	var workDateToYear = thisYear;
+	var workDateTo = resume.work_date_to ? new Date(resume.work_date_to + 'T00:00:00') : today;
+	var workDateToYear = workDateTo.getFullYear();
 	var workDateFrom = new Date(resume.work_date_from + 'T00:00:00');
 	var workDateFromYear = workDateFrom.getFullYear();
 	workDateFrom.setFullYear(workDateToYear);
@@ -31,6 +31,7 @@ $(function() {
 		type : 'default',
 		time : new Date().getTime(),
 		phone : '180******00',
+		wechat : '******',
 		edu_exp : [
 			{
 				form_date : 'X年X月',
@@ -46,10 +47,11 @@ $(function() {
 		var _resume_cache = getCache('resume_cache');
 		resumeCache = _resume_cache ? _resume_cache : resumeCache;
 		var phoneNumber = enableCrypto ? resumeCache.phone : resume.phone;
+		var wechat = enableCrypto ? resumeCache.wechat : resume.wechat;
 		var eduExp = enableCrypto ? resumeCache.edu_exp : resume.edu_exp;
 	
 		// 求职意向 工作经历
-		var content = '<div class="profile"><div class="profile-photo"><img src="' + resume.profile_photo + '"></div><div class="basic-info"><div class="full-name">' + resume.full_name + '</div><div><span>' + resume.sex + '&nbsp;&nbsp;</span><span>' + age + '&nbsp;&nbsp;</span><span>' + resume.city + '&nbsp;&nbsp;</span><span style="color:#bbb">|&nbsp;&nbsp;</span><span>' + resume.highest_edu + '&nbsp;&nbsp;</span><span>' + workYears + '年工作经验</span></div><div><i class="fa fa-mobile icon-color font-16px" aria-hidden="true"></i> <span>' + phoneNumber + '&nbsp;&nbsp;</span><i class="fa fa-envelope-o icon-color" aria-hidden="true"></i> <span>' + resume.email + '&nbsp;&nbsp;</span><i class="fa fa-github icon-color" aria-hidden="true"></i> <span>' + resume.github + '</span></div></div></div><div class="details"><div class="item"><div class="item-title"><img src="images/ico_career_objective.png">'
+		var content = '<div class="profile"><div class="profile-photo"><img src="' + resume.profile_photo + '"></div><div class="basic-info"><div class="full-name">' + resume.full_name + '</div><div><span>' + resume.sex + '&nbsp;&nbsp;</span><span>' + age + '岁&nbsp;&nbsp;</span><span>现居' + resume.city + '&nbsp;&nbsp;</span><span style="color:#bbb">|&nbsp;&nbsp;</span><span>' + resume.highest_edu + '&nbsp;&nbsp;</span><span>' + workYears + '年工作经验&nbsp;&nbsp;</span><span style="color:#bbb">|&nbsp;&nbsp;</span><i class="fa fa-github icon-color" aria-hidden="true"></i> <span>' + resume.github + '</span></div><div><i class="fa fa-phone icon-color" aria-hidden="true"></i> <span>' + phoneNumber + '&emsp;&emsp;</span><i class="fa fa-envelope icon-color" aria-hidden="true"></i> <span>' + resume.email + '&emsp;&emsp;</span><i class="fa fa-wechat icon-color" aria-hidden="true"></i> <span>' + wechat + '&emsp;&emsp;</span></div></div></div><div class="details"><div class="item"><div class="item-title"><img src="images/ico_career_objective.png">'
 					+ '<span>求职意向</span></div><div class="item-line"></div><div class="item-detail"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + resume.position_applied + '&emsp;&emsp;<i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + resume.work_city + '</div></div><div class="item"><div class="item-title"><img src="images/ico_work_exp.png"><span>工作经历</span></div><div class="item-line"></div><div class="item-detail">';
 		var workExp = resume.work_exp;
 		for (var i in workExp) {
@@ -127,7 +129,7 @@ $(function() {
 
 	let p = getUrlParams()['p'];
 	if (p) {
-		let isSuccess = updateResumeCache(p);
+		let isSuccess = updateResumeCache(atob(p));
 	}
 	resumeRender();
 
@@ -141,12 +143,14 @@ $(function() {
 		let $password = $('#password');
 		let password = $password.val();
 		if (!password) {
+			$password.css('border-color', 'red');
 			return;
 		}
 		let isSuccess = updateResumeCache(password);
 		if (isSuccess) {
 			closePasswordPopup();
 			resumeRender();
+			$('#copy-url-btn').data('p', btoa(password));
 		}
 	});
 
@@ -163,6 +167,15 @@ $(function() {
 		}
 	});
 
+	$('#copy-url-btn').on('click', function() {
+		const url = new URL(window.location.href);
+		const p = $(this).data('p');
+		if (p) {
+			url.searchParams.set('p', p);
+		}
+		copyToClipboard(url.toString());
+	});
+
 	$('#pdf-btn').on('mouseover', function() {
 		$('.pdf-tips').show();
 	});
@@ -174,6 +187,7 @@ $(function() {
 	function updateResumeCache(password) {
 		try {
 			resumeCache.phone = CryptoJS.RC4.decrypt(resume.phone, password).toString(CryptoJS.enc.Utf8);
+			resumeCache.wechat = CryptoJS.RC4.decrypt(resume.wechat, password).toString(CryptoJS.enc.Utf8);
 			resumeCache.edu_exp = [];
 			for (var i in resume.edu_exp) {
 				let currEduExp = {};
@@ -237,6 +251,16 @@ $(function() {
 			return obj.length > 0;
 		}
 		return Object.keys(obj).length > 0;
+	}
+
+	async function copyToClipboard(text) {
+		try {
+			await navigator.clipboard.writeText(text);
+			return true;
+		} catch (err) {
+			console.error("复制网址失败:", err);
+			return false;
+		}
 	}
 
 });
