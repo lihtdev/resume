@@ -121,7 +121,7 @@ window.resume = {
 			},
 			"technology_stack": ["Spring Boot", "Spring Cloud Alibaba", "MyBatis", "MySQL", "Redis", "Seata", "RabbitMQ", "Elasticsearch", "MinIO"],
 			"performance": [
-				"主导从 0 到 1搭建了 DGS 数据安全卫士的微服务架构，完成了 DGS 1.0 单体架构到 DGS 2.0 微服务架构的升级改造",
+				"主导从0到1搭建了 DGS 数据安全卫士的微服务架构，完成了 DGS 1.0 单体架构到 DGS 2.0 微服务架构的升级改造",
 				"主导对 DGS 的各业务模块进行了优化，对老旧代码进行重构，对部分业务接口进行性能优化，降低业务逻辑复杂性，确立了 DGS 产品整体的技术架构",
 				"确立了 DGS 团队的工作流程、代码规范等，全面负责项目的管理推进、迭代规划及团队成员的工作任务安排，带领整个团队历时一年时间完成了多轮迭代开发，最终推出了首个可直接交付客户使用的 DGS 2.0 版本"
 			]
