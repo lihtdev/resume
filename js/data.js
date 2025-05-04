@@ -152,7 +152,7 @@ window.resume = {
 		"有多年 Java 后端开发经验，掌握 Java 语言特性与常用设计模式，了解 JVM 调优、并发与多线程等技术",
 		"熟悉常用开源框架的实现原理及设计思想，如 Spring Framework、Spring Boot、SpringSecurity、MyBatis 等，并熟练掌握 MyBatis-Plus、Sa-Token 等框架的使用",
 		"熟悉 MySQL 海量数据存储及其性能优化，掌握 MySQL 运行机制、存储引擎、索引、事务和锁等机制，了解 MySQL 的分库分表、主从模式、双主模式等集群架构设计，熟悉数据库中间件 ShardingSphere 的使用",
-		"熟悉大型分布式系统架构设计，掌握分布式锁、分布式事务、分布式任务调度、分布式 Session 和分布式 ID 等常用分布式解决方案；熟悉微服务架构设计，理解服务注册发现、配置中心、API 网关、负载均衡、服务通信、限流、熔断、降级以及链路追踪等机制，并掌握 Spring Cloud、Spring Cloud Alibaba、Dubbo 等微服务框架的使用，熟悉微服务的控制面、治理面、数据面、运维面和可观测等方面技术方案的应用",
+		"熟悉大型分布式系统架构设计，掌握分布式锁、分布式事务、分布式任务调度、分布式 Session 和分布式 ID 等常用分布式解决方案；熟悉微服务架构设计，理解服务注册发现、配置中心、API 网关、负载均衡、服务通信、限流、熔断、降级以及链路追踪等机制，并掌握 Spring Cloud、Spring Cloud Alibaba、Dubbo 等微服务框架的使用",
 		"熟悉高性能分布式缓存 (Redis)、分布式消息服务中间件 (RabbitMQ, RocketMQ, Kafka)、分布式搜索引擎 (Elasticsearch) 及海量日志分析平台（ELK）等架构的应用",
 		"熟悉 Web 容器与代理（Tomcat, Nginx）、JVM 相关 (JMC, jstack, jmap, jstat, btrace, MAT)、Linux 系统分析 (vmstat, iostat & iotop, ifstat & iftop, netstat, dstat, strace) 等常用工具集"
 	],
