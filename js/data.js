@@ -170,7 +170,7 @@ window.resume = {
 			"to_date" : "U2FsdGVkX1/2J1wSSa5Zo5gwE2CexRA=",
 			"school" : "U2FsdGVkX1/AU+G7TIFmQ9LgkcK01zoSAELHE6g8laVnKA==",
 			"major" : "U2FsdGVkX1+RHCVibksJKaAoM/Cb/WB5nljmzBQ2RnZikc7o4w==",
-			"degree" : "U2FsdGVkX18EgbgPs/7it2dDUd+ZmXX0X4lXjoFWfl+G7XcNZw=="
+			"degree" : "U2FsdGVkX1+6K0k9lGa2EET3d++Z9iBqpIMKoBXpD5/aoQ=="
 		}
 	],
 	"self_evaluation" : "我是一名有丰富实战经验的 Java 后端工程师，学历平平但深耕技术，熟悉 Java 开发全流程，能高效完成编码与调试工作，也了解产品技术架构设计，曾解决接口性能优化、内存频繁溢出、复杂业务架构设计等各类问题。注重团队协作，愿以真诚态度和持续学习，为团队和项目发展贡献自己的力量。"
