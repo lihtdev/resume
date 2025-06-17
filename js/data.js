@@ -35,14 +35,6 @@ window.resume = {
 			"description" : "1. 担任技术经理，主导敏捷 DGS 数据安全卫士的管理推进、迭代规划、核心模块开发<br>2. 主导敏捷 DM 企业网盘的后端微服务架构设计、核心模块开发<br>3. 负责敏捷 Agile Platform 微服务平台开发"
 		},
 		{
-			"form_date" : "2018.09",
-			"to_date" : "2018.11",
-			"company" : "南京维数软件股份有限公司",
-			"position" : "Java工程师",
-			"city" : "南京",
-			"description" : "负责公司为公安部门设计的公安信息化系统的前端开发与后端开发"
-		},
-		{
 			"form_date" : "2015.06",
 			"to_date" : "2018.07",
 			"company" : "神州数码（中国）有限公司",
