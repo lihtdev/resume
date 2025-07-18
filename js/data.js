@@ -8,7 +8,7 @@ window.resume = {
 	"city" : "南京",
 	"highest_edu" : "本科",
 	"work_date_from" : "2014-12-01",
-	"work_date_to" : "2024-06-21",
+	"work_date_to" : "2025-06-21",
 	"phone" : "U2FsdGVkX1/wkkElHhOIzI/ALxag5uq9EmiF",
 	"wechat": "U2FsdGVkX1+2BwaBV0gD3Dj6Dy/xQ3GgYYs6zNw=",
 	"email" : "lihaitaomail@126.com",
@@ -20,7 +20,7 @@ window.resume = {
 	[
 		{
 			"form_date" : "2021.09",
-			"to_date" : "2024.06",
+			"to_date" : "2025.06",
 			"company" : "鼎捷软件股份有限公司江苏分公司",
 			"position" : "资深Java工程师",
 			"city" : "南京",
@@ -55,7 +55,7 @@ window.resume = {
 	[
 		{
 			"form_date" : "2023.02",
-			"to_date" : "2024.06",
+			"to_date" : "2025.06",
 			"project_name" : "鼎捷微服务平台·服务编排系统",
 			"position" : "资深Java工程师",
 			"description" : "鼎捷微服务编排系统具备将多种微服务整合到一个统一平台并进行编排的能力，它能够根据特定的业务流程来执行选定的微服务，并且还是一个功能强大的工作流引擎。",
