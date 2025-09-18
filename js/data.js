@@ -20,7 +20,7 @@ window.resume = {
 	[
 		{
 			"form_date" : "2021.09",
-			"to_date" : "2025.06",
+			"to_date" : "至今",
 			"company" : "鼎捷软件股份有限公司江苏分公司",
 			"position" : "资深Java工程师",
 			"city" : "南京",
@@ -36,7 +36,7 @@ window.resume = {
 		},
 		{
 			"form_date" : "2015.06",
-			"to_date" : "2018.07",
+			"to_date" : "2018.12",
 			"company" : "神州数码（中国）有限公司",
 			"position" : "Java工程师",
 			"city" : "北京",
@@ -66,7 +66,7 @@ window.resume = {
 				"工作器": "HTTP 任务，ESP 任务，JavaScript 任务，子流程任务，判断流程，循环流程，分支流程，异步流程，定时流程，任务工作器，流程工作器",
 				"执行引擎": "Cadence Server，流程控制引擎，任务调度引擎，服务调用组件，历史事件定时清理，流程执行数据统计"
 			},
-			"technology_stack": ["Spring Boot", "Digiwin Gateway", "Digiwin Service", "Diginwin Dao", "MySQL", "Redis", "MongoDB", "RabbitMQ", "Uber Cadence"],
+			"technology_stack": ["Spring Boot", "Spring Cloud", "Spring Security", "MyBatis", "MySQL", "Redis", "MongoDB", "RabbitMQ", "Seata", "Uber Cadence"],
 			"performance": [
 				"完成了服务编排系统的异常信息上报 IT 告警平台、Cadence 历史数据自动清理机制、复杂流程的大对象服务编排模板处理机制等功能的业务设计与开发",
 				"解决了若干线上问题，如并行任务增加定时器后发生超时、JavaScript 任务不支持 ES6 语法、华为云测试区 scworker 内存频繁溢出等问题",
@@ -90,7 +90,7 @@ window.resume = {
 				"社区": "论坛，问答，文章，自动内容审核，人工内容审核",
 				"帮助中心": "提供开发者门户使用指导和技术支持，提供相关指南和常见问题解答"
 			},
-			"technology_stack": ["Spring Boot", "Digiwin Gateway", "Digiwin Service", "Diginwin Dao", "Digiwin Schedule", "MySQL", "Redis", "RabbitMQ"],
+			"technology_stack": ["Spring Boot", "Spring Cloud", "Spring Security", "MyBatis", "MySQL", "Redis", "MongoDB", "RabbitMQ", "Seata", "XXL-JOB"],
 			"performance": [
 				"完成了 API 测试、发版管理、构建镜像任务、流水线部署、监控大屏、帮助中心等功能模块的后端业务设计与开发工作",
 				"优化改进了鼎捷云后端项目部署的自动化脚本程序，简化了代码打包、部署、测试、上线的自动化流程，提高了团队开发效率",
@@ -111,7 +111,7 @@ window.resume = {
 				"数据防泄漏": "邮件管控，即时通讯管控，移动外设管控，文件操作管控，网络传输管控",
 				"安全网关": "应用安全网关，加解密网关，邮件安全网关，数据脱敏网关"
 			},
-			"technology_stack": ["Spring Boot", "Spring Cloud Alibaba", "MyBatis", "MySQL", "Redis", "Seata", "RabbitMQ", "Elasticsearch", "MinIO"],
+			"technology_stack": ["Spring Boot", "Spring Cloud Alibaba", "MyBatis Plus", "MySQL", "Redis", "Seata", "RabbitMQ", "Elasticsearch", "MinIO"],
 			"performance": [
 				"主导从 0 到 1 搭建了 DGS 数据安全卫士的微服务架构，完成了 DGS 1.0 单体架构到 DGS 2.0 微服务架构的升级改造",
 				"主导对 DGS 的各业务模块进行了优化，对老旧代码进行重构，对部分业务接口进行性能优化，降低业务逻辑复杂性，确立了 DGS 产品整体的技术架构",
@@ -132,7 +132,7 @@ window.resume = {
 				"外链分享": "提供文件分享外链地址，支持设置使用权限和阅读次数等",
 				"海量存储": "提供 PB 级存储管理功能，支持分布式部署"
 			},
-			"technology_stack": ["Spring Boot", "Spring Cloud Alibaba", "MyBatis", "MySQL", "Redis", "Seata", "RabbitMQ", "Elasticsearch", "MinIO"],
+			"technology_stack": ["Spring Boot", "Spring Cloud Alibaba", "MyBatis Plus", "MySQL", "Redis", "Seata", "RabbitMQ", "Elasticsearch", "MinIO"],
 			"performance": [
 				"参与了 Agile Platform 微服务平台的开发工作，如 AD 域同步、模块授权、终端升级等功能；并解决了微服务平台存在的若干疑难杂症，如内外网隔离时在线预览失败、配置中心全量同步失败、文件名带特殊字符时预览乱码、移动端预览不支持手势缩放等问题",
 				"主导研发了 Agile Platform 微服务平台的一套 DevOps 开发运维一体化平台，并构建了从研发到运维的标准化流程",
@@ -165,5 +165,5 @@ window.resume = {
 			"degree" : "U2FsdGVkX1+6K0k9lGa2EET3d++Z9iBqpIMKoBXpD5/aoQ=="
 		}
 	],
-	"self_evaluation" : "我是一名有丰富实战经验的 Java 后端工程师，学历平平但深耕技术，熟悉 Java 开发全流程，能高效完成编码与调试工作，也了解产品技术架构设计，曾解决接口性能优化、内存频繁溢出、复杂业务架构设计等各类问题。注重团队协作，愿以真诚态度和持续学习，为团队和项目发展贡献自己的力量。"
+	"self_evaluation" : "我是一名有丰富实战经验的 Java 后端工程师，多年深耕技术，熟悉 Java 开发全流程，能高效完成编码与调试工作，也了解产品技术架构设计，曾解决接口性能优化、内存频繁溢出、复杂业务架构设计等各类问题。注重团队协作，愿以真诚态度和持续学习，为团队和项目发展贡献自己的力量。"
 };
