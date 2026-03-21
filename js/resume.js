@@ -69,37 +69,42 @@ $(function() {
 			}
 		}
 	
-		// 项目经历
+		// 项目经历 (简约版)
 		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_project_exp.png"><span>项目经历</span></div><div class="item-line"></div><div class="item-detail">';
 		var projectExp = resume.project_exp;
 		for (var i in projectExp) {
-			content += '<div class="exp"><div class="date">' + projectExp[i].form_date + '&nbsp;-&nbsp;' + projectExp[i].to_date + '</div><div class="timeline-point">';
-			if (projectExp.length > 1 && i == 0) {
-				content += '<img class="timeline-top-img" src="images/timeline_top.png">';
-			} else if (projectExp.length > 1 && i != 0) {
-				content += '<img class="timeline-bottom-img" src="images/timeline_bottom.png">';
-			}
-			content += '</div><div class="exp-title"><i class="fa fa-leaf icon-color" aria-hidden="true"></i> ' + projectExp[i].project_name + '&nbsp;&nbsp;<i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + projectExp[i].position + '</div></div>';
-			let projectDetail = '<div class="project-desc">' + projectExp[i].description + '</div>';
+			// 使用简约样式
+			content += '<div class="project-item-compact">';
+			// 项目标题和日期区域
+			content += '<div class="project-header-compact">';
+			content += '<div class="project-title-compact"><i class="fa fa-leaf icon-color" aria-hidden="true"></i> ' + projectExp[i].project_name + '<span class="project-position-compact"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + projectExp[i].position + '</span></div>';
+			content += '<div class="project-date-compact">' + projectExp[i].form_date + ' - ' + projectExp[i].to_date + '</div>';
+			content += '</div>';
+
+			// 项目描述
+			content += '<div class="project-desc-compact">' + projectExp[i].description + '</div>';
+
+			// 产品功能
 			let projectFunctinListData = projectExp[i].function_list;
 			if (isNotEmpty(projectFunctinListData)) {
 				let projectFunctionList = '';
 				for (let functionName in projectFunctinListData) {
 					projectFunctionList += '<tr><th>' + functionName + "</th><td>" + projectFunctinListData[functionName] + "</td></tr>";
 				}
-				projectDetail += '<div class="project-item"><div class="project-item-title"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 产品功能</div><table class="project-functions">' + projectFunctionList + '</table></div>';
+				content += '<div class="project-subsection-compact"><div class="project-subtitle-compact"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 产品功能</div><table class="project-functions-compact">' + projectFunctionList + '</table></div>';
 			}
+
+			// 技术栈
 			if (isNotEmpty(projectExp[i].technology_stack)) {
-				projectDetail += '<div class="project-item"><div class="project-item-title"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 技术栈</div><div class="project-technology"><div class="tag">' + projectExp[i].technology_stack.join('</div><div class="tag">') + '</div></div></div>';
+				content += '<div class="project-subsection-compact"><div class="project-subtitle-compact"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 技术栈</div><div class="project-technology-compact"><div class="tag-compact">' + projectExp[i].technology_stack.join('</div><div class="tag-compact">') + '</div></div></div>';
 			}
+
+			// 工作业绩
 			if (isNotEmpty(projectExp[i].performance)) {
-				projectDetail += '<div class="project-item"><div class="project-item-title"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 工作业绩</div><ol class="project-performance"><li>' + projectExp[i].performance.join("</li><li>") + '</li></ol></div>';
+				content += '<div class="project-subsection-compact"><div class="project-subtitle-compact"><i class="fa fa-solid fa-asterisk icon-color" aria-hidden="true"></i> 工作业绩</div><ol class="project-performance-compact"><li>' + projectExp[i].performance.join("</li><li>") + '</li></ol></div>';
 			}
-			if (projectExp.length > 1 && i != projectExp.length - 1) {
-				content += '<div class="timeline"><div class="timeline-right has-timeline">' + projectDetail + '</div></div>';
-			} else {
-				content += '<div class="timeline"><div class="timeline-right no-timeline">' + projectDetail + '</div></div>';
-			}
+
+			content += '</div>'; // 结束 project-item-compact
 		}
 	
 		// 个人技能 教育经历

@@ -300,3 +300,151 @@ body {
 	border-radius: 5px;
 	margin: 10px;
 }
+
+/* 简约项目经历样式 */
+.item-detail .project-item-compact {
+	margin-top: 18px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.item-detail .project-item-compact:last-child {
+	border-bottom: none;
+	padding-bottom: 5px;
+}
+
+.item-detail .project-header-compact {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+.item-detail .project-title-compact {
+	font-weight: 600;
+	font-size: 16px;
+	color: #374760;
+	flex: 1;
+	line-height: 1.4;
+}
+
+.item-detail .project-title-compact i {
+	margin-right: 8px;
+}
+
+.item-detail .project-date-compact {
+	font-size: 12px;
+	color: #788396;
+	background-color: #f0f3f8;
+	padding: 4px 10px;
+	border-radius: 12px;
+	white-space: nowrap;
+	margin-left: 15px;
+	border: 1px solid #e1e6ef;
+	font-weight: 500;
+}
+
+.item-detail .project-position-compact {
+	font-size: 13px;
+	color: #788396;
+	margin-left: 10px;
+	font-weight: normal;
+}
+
+.item-detail .project-desc-compact {
+	margin-top: 8px;
+	margin-bottom: 12px;
+	line-height: 1.6;
+	font-size: 13.5px;
+	color: #444;
+}
+
+.item-detail .project-subsection-compact {
+	margin-top: 12px;
+}
+
+.item-detail .project-subtitle-compact {
+	font-size: 14px;
+	font-weight: 600;
+	color: #374760;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.item-detail .project-subtitle-compact i {
+	margin-right: 8px;
+	font-size: 12px;
+	color: #788396;
+}
+
+.item-detail .project-functions-compact {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+	margin-top: 5px;
+}
+
+.item-detail .project-functions-compact td,
+.item-detail .project-functions-compact th {
+	border: 1px solid #e1e6ef;
+	padding: 8px 10px;
+}
+
+.item-detail .project-functions-compact th {
+	min-width: 100px;
+	font-weight: 500;
+	background-color: #f8f9fc;
+	color: #374760;
+	width: 20%;
+}
+
+.item-detail .project-functions-compact td {
+	color: #444;
+	line-height: 1.5;
+}
+
+.item-detail .project-technology-compact {
+	margin-top: 6px;
+}
+
+.item-detail .project-technology-compact .tag-compact {
+	display: inline-block;
+	border: 1px solid #dde2ec;
+	background-color: #f0f3f8;
+	padding: 4px 12px;
+	border-radius: 12px;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	font-size: 12px;
+	color: #555;
+	font-weight: 500;
+}
+
+.item-detail ol.project-performance-compact {
+	margin-top: 5px;
+	padding-left: 20px;
+	font-size: 13px;
+}
+
+.item-detail ol.project-performance-compact li {
+	margin-bottom: 8px;
+	line-height: 1.6;
+	color: #444;
+	padding-left: 5px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+	.item-detail .project-header-compact {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.item-detail .project-date-compact {
+		margin-left: 0;
+		margin-top: 5px;
+	}
+}
