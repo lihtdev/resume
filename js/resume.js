@@ -55,7 +55,7 @@ $(function() {
 					+ '<span>求职意向</span></div><div class="item-line"></div><div class="item-detail"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + resume.position_applied + '&emsp;&emsp;<i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + resume.work_city + '</div></div><div class="item"><div class="item-title"><img src="images/ico_work_exp.png"><span>工作经历</span></div><div class="item-line"></div><div class="item-detail">';
 		var workExp = resume.work_exp;
 		for (var i in workExp) {
-			content += '<div class="exp"><div class="date">' + workExp[i].form_date + '&nbsp;-&nbsp;' + workExp[i].to_date + '</div><div class="timeline-point"></div><div class="exp-title"><i class="fa fa-building-o icon-color" aria-hidden="true"></i> ' + workExp[i].company + '&nbsp;&nbsp;<i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + workExp[i].position + '&nbsp;&nbsp;<i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + workExp[i].city + '</div></div>';
+			content += '<div class="exp"><div class="date">' + workExp[i].form_date + '&nbsp;-&nbsp;' + workExp[i].to_date + '</div><div class="timeline-point"></div><div class="exp-title"><span class="exp-company"><i class="fa fa-building-o icon-color" aria-hidden="true"></i> ' + workExp[i].company + '</span><span class="exp-position"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + workExp[i].position + ' &nbsp; <i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + workExp[i].city + '</span></div></div>';
 			if (workExp.length > 1 && i != workExp.length - 1) {
 				content += '<div class="timeline"><div class="timeline-right has-timeline comment">' + workExp[i].description + '</div></div>';
 			} else {
@@ -107,10 +107,14 @@ $(function() {
 			professionalSkills = '<ol class="professional-skills"><li>' + resume.professional_skills.join("</li><li>") + '</li></ol>';
 		}
 		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_professional_skills.png"><span>个人技能</span></div><div class="item-line"></div><div class="item-detail">' + professionalSkills + '</div></div><div class="item"><div class="item-title"><img src="images/ico_edu_exp.png"><span>教育经历</span></div><div class="item-line"></div><div class="item-detail">';
-		for (var i in eduExp) {
-			content += '<div class="edu"><div class="date">' + eduExp[i].form_date + '&nbsp;-&nbsp;' + eduExp[i].to_date + '</div><div class="timeline-point"></div><div class="edu-detail"><i class="fa fa-university icon-color" aria-hidden="true"></i> ' + eduExp[i].school + '&emsp;&emsp;<i class="fa fa-book icon-color" aria-hidden="true"></i> ' + eduExp[i].major + '&emsp;&emsp;<i class="fa fa-certificate icon-color" aria-hidden="true"></i> ' + eduExp[i].degree + '</div></div>';
-			if (eduExp.length > 1 && i != eduExp.length - 1) {
-				content += '<div class="timeline"><div class="timeline-right space-timeline"></div></div>';
+		if (eduExp.length == 1) {
+			content += '<div class="edu"><div class="date">' + eduExp[0].form_date + '&nbsp;-&nbsp;' + eduExp[0].to_date + '</div><div class="edu-detail"><i class="fa fa-university icon-color" aria-hidden="true"></i> ' + eduExp[0].school + '&emsp;&emsp;<i class="fa fa-book icon-color" aria-hidden="true"></i> ' + eduExp[0].major + '&emsp;&emsp;<i class="fa fa-certificate icon-color" aria-hidden="true"></i> ' + eduExp[0].degree + '</div></div>';
+		} else {
+			for (var i in eduExp) {
+				content += '<div class="edu"><div class="date">' + eduExp[i].form_date + '&nbsp;-&nbsp;' + eduExp[i].to_date + '</div><div class="timeline-point"></div><div class="edu-detail"><i class="fa fa-university icon-color" aria-hidden="true"></i> ' + eduExp[i].school + '&emsp;&emsp;<i class="fa fa-book icon-color" aria-hidden="true"></i> ' + eduExp[i].major + '&emsp;&emsp;<i class="fa fa-certificate icon-color" aria-hidden="true"></i> ' + eduExp[i].degree + '</div></div>';
+				if (eduExp.length > 1 && i != eduExp.length - 1) {
+					content += '<div class="timeline"><div class="timeline-right space-timeline"></div></div>';
+				}
 			}
 		}
 	
