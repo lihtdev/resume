@@ -623,10 +623,6 @@ body {
 	background-color: #fff;
 }
 
-.ai-chart-card + .ai-chart-card {
-	margin-top: 12px;
-}
-
 .ai-chart-card-hero {
 	padding: 15px 18px 14px 18px;
 	margin-bottom: 14px;
@@ -645,7 +641,8 @@ body {
 	padding: 12px 12px 12px 12px;
 	display: flex;
 	flex-direction: column;
-	min-height: 238px;
+	max-height: 300px;
+	max-width: 315px;
 }
 
 .ai-chart-head {

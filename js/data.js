@@ -203,7 +203,7 @@ window.resume = {
 			"deltaValue" : "+108%",
 			"deltaLabel" : "较基线",
 			"summaryTags" : ["价值", "效率", "产出"],
-			"quantMethod" : "ROI指数 = AI产出价值 ÷ Token消耗成本",
+			"quantMethod" : "ROI 指数 = AI 产出价值 ÷ Token 消耗成本",
 			"callouts" : [
 				{ "index" : 3, "label" : "2.0 参考线" },
 				{ "index" : 5, "label" : "2.5 峰值" }
@@ -226,7 +226,7 @@ window.resume = {
 					{ "label" : "峰值", "value" : "66k" },
 					{ "label" : "增幅", "value" : "+24k" }
 				],
-				"quantMethod" : "每月统计：各AI模型API调用的Token消耗总和",
+				"quantMethod" : "每月统计：各 AI 模型 API 调用的 Token 消耗总和",
 				"callouts" : [
 					{ "index" : 3, "label" : "61k" },
 					{ "index" : 5, "label" : "66k" }
@@ -262,6 +262,6 @@ window.resume = {
 			{ "label" : "编排峰值", "value" : "83" },
 			{ "label" : "观察窗口", "value" : "6个月" }
 		],
-		"note" : "成本倒逼效率：追求 Token ROI 最大化"
+		"note" : "成本倒逼效率"
 	}
 };
