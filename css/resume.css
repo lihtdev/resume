@@ -126,7 +126,7 @@ body {
 }
 .item-detail .timeline .timeline-right.has-timeline {
 	padding: 5px 8px 16px 18px;
-	border-left: 3px solid #e8e8e8;
+	border-left: 1px solid #f0f0f0;
 }
 .item-detail .timeline .timeline-right.space-timeline {
 	padding: 0px 8px 0px 18px;
@@ -462,6 +462,52 @@ body {
 	font-size: 13.5px;
 	color: #444;
 	line-height: 1.6;
+}
+
+/* 工作经历微调 */
+.item-detail .exp .exp-title {
+	font-size: 14px;
+	color: #374760;
+}
+
+.item-detail .exp .date {
+	width: 140px;
+	font-size: 12px;
+	color: #788396;
+}
+
+.item-detail .comment {
+	font-size: 13.5px;
+	color: #444;
+	line-height: 1.6;
+}
+
+/* 求职意向微调 */
+.item:first-child .item-detail {
+	font-size: 13.5px;
+	color: #444;
+	line-height: 1.5;
+}
+
+/* 基本信息微调 */
+.profile .basic-info .full-name + div {
+	font-size: 13.5px;
+	color: #444;
+	line-height: 1.5;
+}
+
+.profile .basic-info .full-name + div + div {
+	font-size: 13.5px;
+	color: #444;
+	line-height: 1.5;
+}
+
+.profile .basic-info .icon-color {
+	color: #788396;
+}
+
+.profile .basic-info span {
+	color: #444;
 }
 
 /* 响应式调整 */
