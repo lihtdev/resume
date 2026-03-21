@@ -303,14 +303,19 @@ body {
 
 /* 简约项目经历样式 */
 .item-detail .project-item-compact {
-	margin-top: 18px;
-	padding-bottom: 18px;
-	border-bottom: 1px solid #e8e8e8;
+	margin-top: 16px;
+	margin-left: -40px;
+	padding: 12px;
+	border: 1px dashed #e8e8e8;
+	border-radius: 4px;
+}
+
+.item-detail .project-item-compact:first-child {
+	margin-top: 8px;
 }
 
 .item-detail .project-item-compact:last-child {
-	border-bottom: none;
-	padding-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 .item-detail .project-header-compact {
@@ -446,5 +451,9 @@ body {
 	.item-detail .project-date-compact {
 		margin-left: 0;
 		margin-top: 5px;
+	}
+
+	.item-detail .project-item-compact {
+		margin-left: 0;
 	}
 }
