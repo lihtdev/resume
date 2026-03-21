@@ -553,16 +553,27 @@ body {
 }
 
 /* 基本信息微调 */
-.profile .basic-info .full-name + div {
+.profile .basic-info .basic-line {
 	font-size: 13.5px;
 	color: #444;
-	line-height: 1.5;
+	line-height: 1.8;
+	margin-bottom: 10px;
 }
 
-.profile .basic-info .full-name + div + div {
-	font-size: 13.5px;
-	color: #444;
-	line-height: 1.5;
+.profile .basic-info .basic-line-1 {
+	margin-top: 5px;
+}
+
+.profile .basic-info .basic-line-1 i,
+.profile .basic-info .basic-line-2 i {
+	margin-right: 8px;
+	color: #788396;
+	width: 16px;
+	text-align: center;
+}
+
+.profile .basic-info .basic-line-1 i {
+	margin-left: 5px;
 }
 
 .profile .basic-info .icon-color {
@@ -587,5 +598,10 @@ body {
 
 	.item-detail .project-item-compact {
 		margin-left: 0;
+	}
+
+	.profile .basic-info .basic-line {
+		font-size: 13px;
+		line-height: 1.6;
 	}
 }
