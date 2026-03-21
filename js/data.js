@@ -233,7 +233,7 @@ window.resume = {
 			},
 			{
 				"name" : "智能体编排能力",
-				"subtitle" : "解决复杂问题的能力",
+				"subtitle" : "协调 AI 智能体解决复杂问题的能力",
 				"unit" : "能力指数",
 				"values" : [46, 53, 60, 68, 75, 83],
 				"currentValue" : 83,
