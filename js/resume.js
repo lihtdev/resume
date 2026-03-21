@@ -183,7 +183,7 @@ $(function() {
 			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + (metric.deltaLabel || 'Δ') + '</span><span class="ai-chart-summary-meta-value">' + metric.deltaValue + '</span></div>');
 		}
 		if (metric.peakValue !== undefined && metric.peakValue !== null && metric.peakValue !== '') {
-			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + metric.peakLabel + '</span><span class="ai-chart-summary-meta-value">' + formatChartValue(metric.peakValue) + '</span></div>');
+			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + (metric.peakLabel || '峰值') + '</span><span class="ai-chart-summary-meta-value">' + formatChartValue(metric.peakValue) + '</span></div>');
 		}
 		if (!meta.length) {
 			return '';

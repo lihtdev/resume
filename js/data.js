@@ -224,7 +224,7 @@ window.resume = {
 				"miniStats" : [
 					{ "label" : "均值", "value" : "54k" },
 					{ "label" : "峰值", "value" : "66k" },
-					{ "label" : "Δ", "value" : "+24k" }
+					{ "label" : "增幅", "value" : "+24k" }
 				],
 				"callouts" : [
 					{ "index" : 3, "label" : "61k" },
@@ -245,7 +245,7 @@ window.resume = {
 				"miniStats" : [
 					{ "label" : "均值", "value" : "64" },
 					{ "label" : "峰值", "value" : "83" },
-					{ "label" : "Δ", "value" : "+37" }
+					{ "label" : "增幅", "value" : "+37" }
 				],
 				"callouts" : [
 					{ "index" : 2, "label" : "60" },
