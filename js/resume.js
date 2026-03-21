@@ -43,6 +43,188 @@ $(function() {
 		]
 	}
 
+	function formatChartValue(value) {
+		if (value === null || value === undefined || value === '') {
+			return '';
+		}
+		if (typeof value === 'number') {
+			if (Math.floor(value) !== value) {
+				return value.toFixed(1);
+			}
+			return String(value);
+		}
+		return String(value);
+	}
+
+	function getMaxPoint(values) {
+		var maxValue = Math.max.apply(null, values);
+		for (var i = 0; i < values.length; i++) {
+			if (values[i] === maxValue) {
+				return { index: i, value: maxValue };
+			}
+		}
+		return { index: 0, value: values[0] };
+	}
+
+	function createLineChartSvg(labels, values, options) {
+		options = options || {};
+		var width = options.width || 640;
+		var height = options.height || 180;
+		var paddingTop = options.paddingTop || 16;
+		var paddingRight = options.paddingRight || 20;
+		var paddingBottom = options.paddingBottom || 28;
+		var paddingLeft = options.paddingLeft || 12;
+		var chartWidth = width - paddingLeft - paddingRight;
+		var chartHeight = height - paddingTop - paddingBottom;
+		var min = Math.min.apply(null, values);
+		var max = Math.max.apply(null, values);
+		if (min === max) {
+			min = min - 1;
+			max = max + 1;
+		}
+		var stepX = values.length > 1 ? chartWidth / (values.length - 1) : chartWidth;
+		var points = [];
+		for (var i = 0; i < values.length; i++) {
+			var x = paddingLeft + stepX * i;
+			var normalized = (values[i] - min) / (max - min);
+			var y = paddingTop + chartHeight - normalized * chartHeight;
+			points.push({ x: x, y: y, value: values[i], label: labels[i] || '' });
+		}
+		var polylinePoints = '';
+		for (var j = 0; j < points.length; j++) {
+			polylinePoints += points[j].x + ',' + points[j].y;
+			if (j !== points.length - 1) {
+				polylinePoints += ' ';
+			}
+		}
+		var areaPoints = paddingLeft + ',' + (paddingTop + chartHeight) + ' ' + polylinePoints + ' ' + (paddingLeft + chartWidth) + ',' + (paddingTop + chartHeight);
+		var gridSvg = '';
+		for (var g = 0; g < 3; g++) {
+			var gridY = paddingTop + chartHeight * g / 2;
+			gridSvg += '<line class="ai-chart-grid" x1="' + paddingLeft + '" y1="' + gridY + '" x2="' + (paddingLeft + chartWidth) + '" y2="' + gridY + '"></line>';
+		}
+		var benchmarkSvg = '';
+		if (options.benchmarkValue !== undefined && options.benchmarkValue !== null && options.benchmarkValue !== '') {
+			var benchmarkNormalized = (options.benchmarkValue - min) / (max - min);
+			var benchmarkY = paddingTop + chartHeight - benchmarkNormalized * chartHeight;
+			benchmarkSvg = '<line class="ai-chart-benchmark" x1="' + paddingLeft + '" y1="' + benchmarkY + '" x2="' + (paddingLeft + chartWidth) + '" y2="' + benchmarkY + '"></line>';
+			if (options.showBenchmarkLabel !== false) {
+				benchmarkSvg += '<text class="ai-chart-benchmark-label" x="' + (paddingLeft + 2) + '" y="' + (benchmarkY - 6) + '">参考线 ' + formatChartValue(options.benchmarkValue) + '</text>';
+			}
+		}
+		var labelsSvg = '';
+		for (var l = 0; l < points.length; l++) {
+			labelsSvg += '<text class="ai-chart-label" x="' + points[l].x + '" y="' + (height - 8) + '" text-anchor="middle">' + points[l].label + '</text>';
+		}
+		var calloutSvg = '';
+		var callouts = options.callouts || [];
+		for (var c = 0; c < callouts.length; c++) {
+			var callout = callouts[c];
+			var calloutPoint = points[callout.index];
+			if (!calloutPoint) {
+				continue;
+			}
+			var offsetY = calloutPoint.y < paddingTop + chartHeight / 2 ? 18 : -12;
+			calloutSvg += '<text class="ai-chart-callout" x="' + calloutPoint.x + '" y="' + (calloutPoint.y + offsetY) + '" text-anchor="middle">' + callout.label + '</text>';
+		}
+		var lastPoint = points[points.length - 1];
+		var firstPoint = points[0];
+		var peakPointMeta = getMaxPoint(values);
+		var peakPoint = points[peakPointMeta.index];
+		var endValueLabel = '';
+		if (options.showEndValue !== false) {
+			endValueLabel = '<text class="ai-chart-end-value" x="' + (lastPoint.x - 2) + '" y="' + (lastPoint.y - 10) + '" text-anchor="end">' + formatChartValue(lastPoint.value) + '</text>';
+		}
+		var peakMarker = '';
+		if (peakPoint) {
+			peakMarker = '<circle class="ai-chart-point ai-chart-point-peak" cx="' + peakPoint.x + '" cy="' + peakPoint.y + '" r="5.2"></circle>';
+		}
+		return '<svg class="ai-chart-svg" viewBox="0 0 ' + width + ' ' + height + '" preserveAspectRatio="none" aria-hidden="true">'
+			+ gridSvg
+			+ benchmarkSvg
+			+ '<polyline class="ai-chart-area" points="' + areaPoints + '"></polyline>'
+			+ '<polyline class="ai-chart-line" points="' + polylinePoints + '"></polyline>'
+			+ '<circle class="ai-chart-point ai-chart-point-start" cx="' + firstPoint.x + '" cy="' + firstPoint.y + '" r="3.5"></circle>'
+			+ peakMarker
+			+ '<circle class="ai-chart-point ai-chart-point-end" cx="' + lastPoint.x + '" cy="' + lastPoint.y + '" r="4.5"></circle>'
+			+ endValueLabel
+			+ calloutSvg
+			+ labelsSvg
+			+ '</svg>';
+	}
+
+	function renderMiniStats(miniStats) {
+		if (!isNotEmpty(miniStats)) {
+			return '';
+		}
+		var html = '<div class="ai-mini-stats">';
+		for (var i = 0; i < miniStats.length; i++) {
+			html += '<div class="ai-mini-stat"><span class="ai-mini-stat-label">' + miniStats[i].label + '</span><span class="ai-mini-stat-value">' + miniStats[i].value + '</span></div>';
+		}
+		html += '</div>';
+		return html;
+	}
+
+	function renderStatStrip(statStrip) {
+		if (!isNotEmpty(statStrip)) {
+			return '';
+		}
+		var html = '<div class="ai-stat-strip">';
+		for (var i = 0; i < statStrip.length; i++) {
+			html += '<div class="ai-stat-chip"><span class="ai-stat-chip-value">' + statStrip[i].value + '</span><span class="ai-stat-chip-label">' + statStrip[i].label + '</span></div>';
+		}
+		html += '</div>';
+		return html;
+	}
+
+	function renderSummaryMeta(metric) {
+		var meta = [];
+		if (metric.deltaValue) {
+			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + (metric.deltaLabel || 'Δ') + '</span><span class="ai-chart-summary-meta-value">' + metric.deltaValue + '</span></div>');
+		}
+		if (metric.peakValue !== undefined && metric.peakValue !== null && metric.peakValue !== '') {
+			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">Peak</span><span class="ai-chart-summary-meta-value">' + formatChartValue(metric.peakValue) + '</span></div>');
+		}
+		if (!meta.length) {
+			return '';
+		}
+		return '<div class="ai-chart-summary-meta">' + meta.join('') + '</div>';
+	}
+
+
+	function renderAiCapabilitySection(aiCapability) {
+		if (!aiCapability) {
+			return '';
+		}
+		var labels = aiCapability.labels || [];
+		var heroMetric = aiCapability.heroMetric || {};
+		var sideMetrics = aiCapability.sideMetrics || [];
+		var statStrip = aiCapability.statStrip || [];
+		if (!isNotEmpty(labels) || !isNotEmpty(heroMetric.values)) {
+			return '';
+		}
+		var heroChart = createLineChartSvg(labels, heroMetric.values || [], {
+			width: 656,
+			height: 216,
+			paddingTop: 18,
+			paddingRight: 28,
+			paddingBottom: 34,
+			paddingLeft: 14,
+			benchmarkValue: heroMetric.benchmarkValue,
+			callouts: heroMetric.callouts || []
+		});
+		var sideCards = '';
+		for (var i = 0; i < sideMetrics.length; i++) {
+			var metric = sideMetrics[i];
+			sideCards += '<div class="ai-chart-card ai-chart-card-secondary"><div class="ai-chart-head"><div class="ai-chart-title-group"><div class="ai-chart-title">' + metric.name + '</div><div class="ai-chart-subtitle">' + metric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-secondary"><div class="ai-chart-summary-main">' + formatChartValue(metric.currentValue) + '</div><div class="ai-chart-summary-unit">' + metric.unit + '</div></div></div><div class="ai-chart-wrap ai-chart-wrap-secondary">' + createLineChartSvg(labels, metric.values || [], { width: 312, height: 144, paddingTop: 16, paddingRight: 20, paddingBottom: 30, paddingLeft: 10, callouts: metric.callouts || [], showBenchmarkLabel: false }) + '</div>' + renderMiniStats(metric.miniStats || []) + '</div>';
+		}
+		var heroTags = '';
+		if (isNotEmpty(heroMetric.summaryTags)) {
+			heroTags = '<div class="ai-chart-tags"><span>' + heroMetric.summaryTags.join('</span><span>') + '</span></div>';
+		}
+		return '<div class="item item-ai-capability"><div class="item-title"><i class="fa fa-line-chart icon-color" aria-hidden="true"></i><span>' + aiCapability.title + '</span></div><div class="item-line"></div><div class="item-detail"><div class="ai-capability-subhead">' + aiCapability.subhead + '</div><div class="ai-chart-card ai-chart-card-hero"><div class="ai-chart-head ai-chart-head-hero"><div class="ai-chart-title-group"><div class="ai-chart-title">' + heroMetric.name + '</div><div class="ai-chart-subtitle">' + heroMetric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-hero"><div class="ai-chart-summary-main">' + formatChartValue(heroMetric.currentValue) + '</div><div class="ai-chart-summary-unit">' + heroMetric.unit + '</div>' + renderSummaryMeta(heroMetric) + '</div></div><div class="ai-chart-wrap ai-chart-wrap-hero">' + heroChart + '</div>' + heroTags + '</div><div class="ai-side-charts">' + sideCards + '</div>' + renderStatStrip(statStrip) + '</div></div>';
+	}
+
 	var resumeRender = function() {
 		var _resume_cache = getCache('resume_cache');
 		resumeCache = _resume_cache ? _resume_cache : resumeCache;
@@ -119,7 +301,10 @@ $(function() {
 		}
 	
 		// 自我评价
-		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_self_evaluation.png"><span>自我评价</span></div><div class="item-line"></div><div class="item-detail">' + resume.self_evaluation + '</div></div></div>';
+		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_self_evaluation.png"><span>自我评价</span></div><div class="item-line"></div><div class="item-detail">' + resume.self_evaluation + '</div></div>';
+
+		// AI 开发能力
+		content += renderAiCapabilitySection(resume.aiCapability) + '</div>';
 		
 		$('#resume-content').html(content);
 	}

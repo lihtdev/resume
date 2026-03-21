@@ -186,5 +186,78 @@ window.resume = {
 			"degree" : "U2FsdGVkX1+6K0k9lGa2EET3d++Z9iBqpIMKoBXpD5/aoQ=="
 		}
 	],
-	"self_evaluation" : "我是一名有丰富实战经验的 Java 后端工程师，多年深耕技术，熟悉 Java 开发全流程，能高效完成编码与调试工作，也了解产品技术架构设计，曾解决接口性能优化、内存频繁溢出、复杂业务架构设计等各类问题。注重团队协作，愿以真诚态度和持续学习，为团队和项目发展贡献自己的力量。"
+	"self_evaluation" : "我是一名有丰富实战经验的 Java 后端工程师，多年深耕技术，熟悉 Java 开发全流程，能高效完成编码与调试工作，也了解产品技术架构设计，曾解决接口性能优化、内存频繁溢出、复杂业务架构设计等各类问题。注重团队协作，愿以真诚态度和持续学习，为团队和项目发展贡献自己的力量。",
+	"aiCapability" : {
+		"title" : "AI 开发能力",
+		"subhead" : "近 6 个月 · 价值 / 效率 / 编排",
+		"labels" : ["10月", "11月", "12月", "1月", "2月", "3月"],
+		"heroMetric" : {
+			"name" : "Token ROI (投资回报率)",
+			"subtitle" : "AI创造的实际价值",
+			"unit" : "回报指数",
+			"values" : [1.2, 1.4, 1.7, 2.0, 2.2, 2.5],
+			"currentValue" : 2.5,
+			"baselineValue" : 1.2,
+			"peakValue" : 2.5,
+			"benchmarkValue" : 2.0,
+			"deltaValue" : "+108%",
+			"deltaLabel" : "较基线",
+			"summaryTags" : ["价值", "效率", "产出"],
+			"callouts" : [
+				{ "index" : 3, "label" : "2.0 参考线" },
+				{ "index" : 5, "label" : "2.5 峰值" }
+			]
+		},
+		"sideMetrics" : [
+			{
+				"name" : "Token 消耗量",
+				"subtitle" : "AI 工具的使用频率和深度",
+				"unit" : "千 Tokens",
+				"values" : [42, 50, 48, 61, 58, 66],
+				"currentValue" : 66,
+				"avgValue" : 54,
+				"peakValue" : 66,
+				"baselineValue" : 42,
+				"deltaValue" : "+24k",
+				"deltaLabel" : "6个月 Δ",
+				"miniStats" : [
+					{ "label" : "均值", "value" : "54k" },
+					{ "label" : "峰值", "value" : "66k" },
+					{ "label" : "Δ", "value" : "+24k" }
+				],
+				"callouts" : [
+					{ "index" : 3, "label" : "61k" },
+					{ "index" : 5, "label" : "66k" }
+				]
+			},
+			{
+				"name" : "智能体编排能力",
+				"subtitle" : "解决复杂问题的能力",
+				"unit" : "能力指数",
+				"values" : [46, 53, 60, 68, 75, 83],
+				"currentValue" : 83,
+				"avgValue" : 64,
+				"peakValue" : 83,
+				"baselineValue" : 46,
+				"deltaValue" : "+37",
+				"deltaLabel" : "6个月 Δ",
+				"miniStats" : [
+					{ "label" : "均值", "value" : "64" },
+					{ "label" : "峰值", "value" : "83" },
+					{ "label" : "Δ", "value" : "+37" }
+				],
+				"callouts" : [
+					{ "index" : 2, "label" : "60" },
+					{ "index" : 5, "label" : "83" }
+				]
+			}
+		],
+		"statStrip" : [
+			{ "label" : "回报增幅", "value" : "+108%" },
+			{ "label" : "回报峰值", "value" : "2.50" },
+			{ "label" : "月均 Token", "value" : "54k" },
+			{ "label" : "编排峰值", "value" : "83" },
+			{ "label" : "观察窗口", "value" : "6个月" }
+		]
+	}
 };
