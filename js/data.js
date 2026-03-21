@@ -199,11 +199,11 @@ window.resume = {
 			"currentValue" : 2.5,
 			"baselineValue" : 1.2,
 			"peakValue" : 2.5,
-			"peakLabel" : "峰值",
 			"benchmarkValue" : 2.0,
 			"deltaValue" : "+108%",
 			"deltaLabel" : "较基线",
 			"summaryTags" : ["价值", "效率", "产出"],
+			"quantMethod" : "ROI指数 = AI产出价值 ÷ Token消耗成本",
 			"callouts" : [
 				{ "index" : 3, "label" : "2.0 参考线" },
 				{ "index" : 5, "label" : "2.5 峰值" }
@@ -226,6 +226,7 @@ window.resume = {
 					{ "label" : "峰值", "value" : "66k" },
 					{ "label" : "增幅", "value" : "+24k" }
 				],
+				"quantMethod" : "每月统计：各AI模型API调用的Token消耗总和",
 				"callouts" : [
 					{ "index" : 3, "label" : "61k" },
 					{ "index" : 5, "label" : "66k" }
@@ -247,6 +248,7 @@ window.resume = {
 					{ "label" : "峰值", "value" : "83" },
 					{ "label" : "增幅", "value" : "+37" }
 				],
+				"quantMethod" : "能力指数 = 任务复杂度 × 智能体数量 × 成功率",
 				"callouts" : [
 					{ "index" : 2, "label" : "60" },
 					{ "index" : 5, "label" : "83" }
@@ -259,6 +261,7 @@ window.resume = {
 			{ "label" : "月均 Token", "value" : "54k" },
 			{ "label" : "编排峰值", "value" : "83" },
 			{ "label" : "观察窗口", "value" : "6个月" }
-		]
+		],
+		"note" : "成本倒逼效率：追求 Token ROI 最大化"
 	}
 };

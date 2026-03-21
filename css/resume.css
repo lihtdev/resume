@@ -643,6 +643,9 @@ body {
 .ai-chart-card-secondary {
 	flex: 1;
 	padding: 12px 12px 12px 12px;
+	display: flex;
+	flex-direction: column;
+	min-height: 238px;
 }
 
 .ai-chart-head {
@@ -651,6 +654,7 @@ body {
 	align-items: flex-start;
 	gap: 12px;
 	margin-bottom: 10px;
+	min-height: 56px;
 }
 
 .ai-chart-head-hero {
@@ -829,6 +833,8 @@ body {
 	gap: 10px;
 	flex-wrap: wrap;
 	padding-top: 2px;
+	min-height: 32px;
+	margin-top: auto;
 }
 
 .ai-mini-stat {
@@ -880,6 +886,16 @@ body {
 	text-transform: uppercase;
 	color: #9aa4b3;
 	margin-top: 4px;
+}
+
+
+.ai-chart-quant-method {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px dashed #e8e8e8;
+	font-size: 11px;
+	color: #788396;
+	line-height: 1.5;
 }
 
 @media (max-width: 768px) {

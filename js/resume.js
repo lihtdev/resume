@@ -183,12 +183,20 @@ $(function() {
 			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + (metric.deltaLabel || 'Δ') + '</span><span class="ai-chart-summary-meta-value">' + metric.deltaValue + '</span></div>');
 		}
 		if (metric.peakValue !== undefined && metric.peakValue !== null && metric.peakValue !== '') {
-			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">' + (metric.peakLabel || '峰值') + '</span><span class="ai-chart-summary-meta-value">' + formatChartValue(metric.peakValue) + '</span></div>');
+			meta.push('<div class="ai-chart-summary-meta-item"><span class="ai-chart-summary-meta-label">峰值</span><span class="ai-chart-summary-meta-value">' + formatChartValue(metric.peakValue) + '</span></div>');
 		}
 		if (!meta.length) {
 			return '';
 		}
 		return '<div class="ai-chart-summary-meta">' + meta.join('') + '</div>';
+	}
+
+
+	function renderQuantMethod(quantMethod) {
+		if (!quantMethod) {
+			return '';
+		}
+		return '<div class="ai-chart-quant-method">' + quantMethod + '</div>';
 	}
 
 
@@ -216,13 +224,13 @@ $(function() {
 		var sideCards = '';
 		for (var i = 0; i < sideMetrics.length; i++) {
 			var metric = sideMetrics[i];
-			sideCards += '<div class="ai-chart-card ai-chart-card-secondary"><div class="ai-chart-head"><div class="ai-chart-title-group"><div class="ai-chart-title">' + metric.name + '</div><div class="ai-chart-subtitle">' + metric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-secondary"><div class="ai-chart-summary-main">' + formatChartValue(metric.currentValue) + '</div><div class="ai-chart-summary-unit">' + metric.unit + '</div></div></div><div class="ai-chart-wrap ai-chart-wrap-secondary">' + createLineChartSvg(labels, metric.values || [], { width: 312, height: 144, paddingTop: 16, paddingRight: 20, paddingBottom: 30, paddingLeft: 10, callouts: metric.callouts || [], showBenchmarkLabel: false }) + '</div>' + renderMiniStats(metric.miniStats || []) + '</div>';
+			sideCards += '<div class="ai-chart-card ai-chart-card-secondary"><div class="ai-chart-head"><div class="ai-chart-title-group"><div class="ai-chart-title">' + metric.name + '</div><div class="ai-chart-subtitle">' + metric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-secondary"><div class="ai-chart-summary-main">' + formatChartValue(metric.currentValue) + '</div><div class="ai-chart-summary-unit">' + metric.unit + '</div></div></div><div class="ai-chart-wrap ai-chart-wrap-secondary">' + createLineChartSvg(labels, metric.values || [], { width: 312, height: 144, paddingTop: 16, paddingRight: 20, paddingBottom: 30, paddingLeft: 10, callouts: metric.callouts || [], showBenchmarkLabel: false }) + '</div>' + renderMiniStats(metric.miniStats || []) + renderQuantMethod(metric.quantMethod) + '</div>';
 		}
 		var heroTags = '';
 		if (isNotEmpty(heroMetric.summaryTags)) {
 			heroTags = '<div class="ai-chart-tags"><span>' + heroMetric.summaryTags.join('</span><span>') + '</span></div>';
 		}
-		return '<div class="item item-ai-capability"><div class="item-title"><i class="fa fa-line-chart icon-color" aria-hidden="true"></i><span>' + aiCapability.title + '</span></div><div class="item-line"></div><div class="item-detail"><div class="ai-capability-subhead">' + aiCapability.subhead + '</div><div class="ai-chart-card ai-chart-card-hero"><div class="ai-chart-head ai-chart-head-hero"><div class="ai-chart-title-group"><div class="ai-chart-title">' + heroMetric.name + '</div><div class="ai-chart-subtitle">' + heroMetric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-hero"><div class="ai-chart-summary-main">' + formatChartValue(heroMetric.currentValue) + '</div><div class="ai-chart-summary-unit">' + heroMetric.unit + '</div>' + renderSummaryMeta(heroMetric) + '</div></div><div class="ai-chart-wrap ai-chart-wrap-hero">' + heroChart + '</div>' + heroTags + '</div><div class="ai-side-charts">' + sideCards + '</div>' + renderStatStrip(statStrip) + '</div></div>';
+		return '<div class="item item-ai-capability"><div class="item-title"><i class="fa fa-line-chart icon-color" aria-hidden="true"></i><span>' + aiCapability.title + '</span></div><div class="item-line"></div><div class="item-detail"><div class="ai-capability-subhead">' + aiCapability.subhead + '</div><div class="ai-chart-card ai-chart-card-hero"><div class="ai-chart-head ai-chart-head-hero"><div class="ai-chart-title-group"><div class="ai-chart-title">' + heroMetric.name + '</div><div class="ai-chart-subtitle">' + heroMetric.subtitle + '</div></div><div class="ai-chart-summary ai-chart-summary-hero"><div class="ai-chart-summary-main">' + formatChartValue(heroMetric.currentValue) + '</div><div class="ai-chart-summary-unit">' + heroMetric.unit + '</div>' + renderSummaryMeta(heroMetric) + '</div></div><div class="ai-chart-wrap ai-chart-wrap-hero">' + heroChart + '</div>' + heroTags + renderQuantMethod(heroMetric.quantMethod) + '</div><div class="ai-side-charts">' + sideCards + '</div>' + renderStatStrip(statStrip) + '</div></div>';
 	}
 
 	var resumeRender = function() {
