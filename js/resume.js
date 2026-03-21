@@ -233,8 +233,8 @@ $(function() {
 		var eduExp = enableCrypto ? resumeCache.edu_exp : resume.edu_exp;
 	
 		// 求职意向 工作经历
-		var content = '<div class="profile"><div class="profile-photo"><img src="' + resume.profile_photo + '"></div><div class="basic-info"><div class="full-name">' + resume.full_name + '</div><div class="basic-line basic-line-1"><span>' + resume.sex + '&nbsp;&nbsp;&nbsp;' + age + '岁&nbsp;&nbsp;&nbsp;现居' + resume.city + '&nbsp;&nbsp;&nbsp;' + resume.highest_edu + '&nbsp;&nbsp;&nbsp;' + workYears + '年工作经验</span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-github icon-color" aria-hidden="true"></i> ' + resume.github + '</div><div class="basic-line basic-line-2"><i class="fa fa-phone icon-color" aria-hidden="true"></i> ' + phoneNumber + '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope icon-color" aria-hidden="true"></i> ' + resume.email + '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-wechat icon-color" aria-hidden="true"></i> ' + wechat + '</div></div></div><div class="details"><div class="item"><div class="item-title"><img src="images/ico_career_objective.png">'
-					+ '<span>求职意向</span></div><div class="item-line"></div><div class="item-detail"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + resume.position_applied + '&emsp;&emsp;<i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + resume.work_city + '</div></div><div class="item"><div class="item-title"><img src="images/ico_work_exp.png"><span>工作经历</span></div><div class="item-line"></div><div class="item-detail">';
+		var content = '<div class="profile"><div class="profile-photo"><img src="' + resume.profile_photo + '"></div><div class="basic-info"><div class="full-name">' + resume.full_name + '</div><div class="basic-line basic-line-1"><span>' + resume.sex + '&nbsp;&nbsp;&nbsp;' + age + '岁&nbsp;&nbsp;&nbsp;现居' + resume.city + '&nbsp;&nbsp;&nbsp;' + resume.highest_edu + '&nbsp;&nbsp;&nbsp;' + workYears + '年工作经验</span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-github icon-color" aria-hidden="true"></i> ' + resume.github + '</div><div class="basic-line basic-line-2"><i class="fa fa-phone icon-color" aria-hidden="true"></i> ' + phoneNumber + '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope icon-color" aria-hidden="true"></i> ' + resume.email + '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-wechat icon-color" aria-hidden="true"></i> ' + wechat + '</div></div></div><div class="details"><div class="item"><div class="item-title"><i class="fa fa-bullseye icon-color" aria-hidden="true"></i>'
+					+ '<span>求职意向</span></div><div class="item-line"></div><div class="item-detail"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + resume.position_applied + '&emsp;&emsp;<i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + resume.work_city + '</div></div><div class="item"><div class="item-title"><i class="fa fa-briefcase icon-color" aria-hidden="true"></i><span>工作经历</span></div><div class="item-line"></div><div class="item-detail">';
 		var workExp = resume.work_exp;
 		for (var i in workExp) {
 			content += '<div class="exp"><div class="date">' + workExp[i].form_date + '&nbsp;-&nbsp;' + workExp[i].to_date + '</div><div class="timeline-point"></div><div class="exp-title"><span class="exp-company"><i class="fa fa-building-o icon-color" aria-hidden="true"></i> ' + workExp[i].company + '</span><span class="exp-position"><i class="fa fa-tag icon-color" aria-hidden="true"></i> ' + workExp[i].position + ' &nbsp; <i class="fa fa-map-marker icon-color" aria-hidden="true"></i> ' + workExp[i].city + '</span></div></div>';
@@ -246,7 +246,7 @@ $(function() {
 		}
 	
 		// 项目经历 (简约版)
-		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_project_exp.png"><span>项目经历</span></div><div class="item-line"></div><div class="item-detail">';
+		content += '</div></div><div class="item"><div class="item-title"><i class="fa fa-cubes icon-color" aria-hidden="true"></i><span>项目经历</span></div><div class="item-line"></div><div class="item-detail">';
 		var projectExp = resume.project_exp;
 		for (var i in projectExp) {
 			// 使用简约样式
@@ -288,7 +288,7 @@ $(function() {
 		if (isNotEmpty(resume.professional_skills)) {
 			professionalSkills = '<ol class="professional-skills"><li>' + resume.professional_skills.join("</li><li>") + '</li></ol>';
 		}
-		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_professional_skills.png"><span>个人技能</span></div><div class="item-line"></div><div class="item-detail">' + professionalSkills + '</div></div><div class="item"><div class="item-title"><img src="images/ico_edu_exp.png"><span>教育经历</span></div><div class="item-line"></div><div class="item-detail">';
+		content += '</div></div><div class="item"><div class="item-title"><i class="fa fa-wrench icon-color" aria-hidden="true"></i><span>个人技能</span></div><div class="item-line"></div><div class="item-detail">' + professionalSkills + '</div></div><div class="item"><div class="item-title"><i class="fa fa-graduation-cap icon-color" aria-hidden="true"></i><span>教育经历</span></div><div class="item-line"></div><div class="item-detail">';
 		if (eduExp.length == 1) {
 			content += '<div class="edu"><div class="date">' + eduExp[0].form_date + '&nbsp;-&nbsp;' + eduExp[0].to_date + '</div><div class="edu-detail"><i class="fa fa-university icon-color" aria-hidden="true"></i> ' + eduExp[0].school + '&emsp;&emsp;<i class="fa fa-book icon-color" aria-hidden="true"></i> ' + eduExp[0].major + '&emsp;&emsp;<i class="fa fa-certificate icon-color" aria-hidden="true"></i> ' + eduExp[0].degree + '</div></div>';
 		} else {
@@ -301,7 +301,7 @@ $(function() {
 		}
 	
 		// 自我评价
-		content += '</div></div><div class="item"><div class="item-title"><img src="images/ico_self_evaluation.png"><span>自我评价</span></div><div class="item-line"></div><div class="item-detail">' + resume.self_evaluation + '</div></div>';
+		content += '</div></div><div class="item item-self-evaluation"><div class="item-title"><i class="fa fa-user icon-color" aria-hidden="true"></i><span>自我评价</span></div><div class="item-line"></div><div class="item-detail">' + resume.self_evaluation + '</div></div>';
 
 		// AI 开发能力
 		content += renderAiCapabilitySection(resume.aiCapability) + '</div>';

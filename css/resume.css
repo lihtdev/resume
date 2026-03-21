@@ -77,10 +77,12 @@ body {
 	font-weight: bold;
 	line-height: 1;
 }
-.item .item-title img {
+.item .item-title img,
+.item .item-title i {
 	width: 24px;
 	height: 24px;
-	vertical-align: -5px;
+	vertical-align: -2px;
+	font-size: 20px;
 }
 .item .item-title span {
 	padding-left: 8px;
@@ -356,7 +358,6 @@ body {
 /* 简约项目经历样式 */
 .item-detail .project-item-compact {
 	margin-top: 16px;
-	margin-left: -40px;
 	padding: 12px;
 	border: 1px dashed #e8e8e8;
 	border-radius: 4px;
@@ -494,10 +495,17 @@ body {
 }
 
 /* 自我评价样式 */
-.item:last-child .item-detail {
+.item.item-self-evaluation .item-detail {
 	font-size: 13.5px;
 	color: #444;
 	line-height: 1.6;
+}
+
+/* AI 模块 - 作为最后一个 item 时不受自我评价样式影响 */
+.item.item-ai-capability .item-detail {
+	font-size: 14px;
+	color: black;
+	line-height: 1.5;
 }
 
 /* 工作经历微调 */
